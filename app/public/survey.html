@@ -24,12 +24,30 @@
 			</h3>
 		</div>
 
-		<div class="row">
+		<div class="row" id="user-info">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading"> About you </div>
+					<div class="panel-body">
+						<div class="form-group">
+							<label for="user-name">Name: </label>
+							<input type="text" class="form-control" placeholder="Your Name Here" id="user-name">
+						</div>
+						<div class="form-group">
+							<label for="user-photo">Your Profile Photo: </label>
+							<input type="text" class="form-control" placeholder="Photo Link Here" id="user-photo">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='row' id="question-area">
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">Answer these questions!!</div>
 					<div class="panel-body">
-						<h5>
+						<p>
 							1. Your mind is always buzzing with unexplored ideas and plans.
 							<br><br>
 							<select id="question1">
@@ -40,7 +58,7 @@
 								<option value="4">4</option>
 								<option value="5">5 (Strongly Agree)</option>
 							</select>
-						</h5>
+						</p>
 
 						<hr>
 
@@ -178,10 +196,15 @@
 						 </p>
 						 <hr>
 						 <button type="submit" id="submitButton" class="btn btn-primary btn-block">Submit!</button>	
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+
+			<div class="row">
+				<div class="col-md-12" id="answers">
+				</div>
+			</div> 
 
 		<div class="footer text-center">
 			<p> 
