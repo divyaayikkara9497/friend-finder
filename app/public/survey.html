@@ -3,12 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Survey</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<!-- jQuery library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery.js"></script>
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -50,7 +55,7 @@
 						<p>
 							1. Your mind is always buzzing with unexplored ideas and plans.
 							<br><br>
-							<select id="question1">
+							<select data-placeholder="" class="chosen-select" id="question1">
 								<option value="" disabled selected>Choose your option</option>
 								<option value="1">1 (Strongly Disagree)</option>
 								<option value="2">2</option>
@@ -65,7 +70,7 @@
 						<p>
 							2. Generally speaking, you rely more on your experience than your imagination.
 							<br><br>
-							<select id="question2">
+							<select data-placeholder="" class="chosen-select" id="question2">
 								<option value="" disabled selected>Choose your option</option>
 								<option value="1">1 (Strongly Disagree)</option>
 								<option value="2">2</option>
@@ -80,7 +85,7 @@
 						<p>
 							3. You find it easy to stay relaxed and focused even when there is some pressure.
 							<br><br>
-							<select id="question3">
+							<select data-placeholder="" class="chosen-select" id="question3">
 								<option value="" disabled selected>Choose your option</option>
 								<option value="1">1 (Strongly Disagree)</option>
 								<option value="2">2</option>
@@ -95,7 +100,7 @@
 						<p>
 							4. You rarely do something just out of sheer curiosity.
 							<br><br>
-							<select id="question4">
+							<select data-placeholder="" class="chosen-select" id="question4">
 								<option value="" disabled selected>Choose your option</option>
 								<option value="1">1 (Strongly Disagree)</option>
 								<option value="2">2</option>
@@ -110,7 +115,7 @@
 						<p>
 							5. People can rarely upset you.
 							<br><br>
-							<select id="question5">
+							<select data-placeholder="" class="chosen-select" id="question5">
 								<option value="" disabled selected>Choose your option</option>
 								<option value="1">1 (Strongly Disagree)</option>
 								<option value="2">2</option>
@@ -125,7 +130,7 @@
 						<p>
 							6. It is often difficult for you to relate to other people’s feelings.
 							<br><br>
-							<select id="question6">
+							<select data-placeholder="" class="chosen-select" id="question6">
 								<option value="" disabled selected>Choose your option</option>
 								<option value="1">1 (Strongly Disagree)</option>
 								<option value="2">2</option>
@@ -140,7 +145,7 @@
 						<p>
 							7. In a discussion, truth should be more important than people’s sensitivities.
 							<br><br>
-							<select id="question7">
+							<select data-placeholder="" class="chosen-select" id="question7">
 								<option value="" disabled selected>Choose your option</option>
 								<option value="1">1 (Strongly Disagree)</option>
 								<option value="2">2</option>
@@ -155,7 +160,7 @@
 						<p>
 							8. You rarely get carried away by fantasies and ideas.
 							<br><br>
-							<select id="question8">
+							<select data-placeholder="" class="chosen-select" id="question8">
 								<option value="" disabled selected>Choose your option</option>
 								<option value="1">1 (Strongly Disagree)</option>
 								<option value="2">2</option>
@@ -170,7 +175,7 @@
 						 <p>
 						 	9.You think that everyone’s views should be respected regardless of whether they are supported by facts or not.
 						 	<br><br>
-						 	<select id="question9">
+						 	<select data-placeholder="" class="chosen-select" id="question9">
 								<option value="" disabled selected>Choose your option</option>
 								<option value="1">1 (Strongly Disagree)</option>
 								<option value="2">2</option>
@@ -185,7 +190,7 @@
 						 <p>
 						 	10.You feel more energetic after spending time with a group of people.
 						 	<br><br>
-						 	<select id="question10">
+						 	<select data-placeholder="" class="chosen-select" id="question10">
 								<option value="" disabled selected>Choose your option</option>
 								<option value="1">1 (Strongly Disagree)</option>
 								<option value="2">2</option>
@@ -228,47 +233,45 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		$(document).ready(function() {
-			// got this part from Stackoverflow
-			$('select').material_select();
-			$('.modal').modal({
-				dismissible: false, // Modal can be dismissed by clicking outside of the modal
-				opacity: .5, // Opacity of modal background
-				inDuration: 300, // Transition in duration
-				outDuration: 200, // Transition out duration
-				startingTop: '4%', // Starting top style attribute
-				endingTop: '10%' // Ending top style attribute
-			});
-		});
-		$("#submitButton").on("click" , function(event){
-			event.preventDefault();
+		var config = {
+      '.chosen-select'           : {},
+      '.chosen-select-deselect'  : {allow_single_deselect:true},
+      '.chosen-select-no-single' : {disable_search_threshold:10},
+      '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+      '.chosen-select-width'     : {width:"95%"}
+    }
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
+    $("#submitButton").on("click" , function(event){
+    	event.preventDefault();
+    	var userInput = {
+    		name: $("#user-name").val().trim(),
+			photo: $("#user-photo").val().trim(),
+			score: [
+			$('#question1').val().trim(),
+			$('#question2').val().trim(),
+			$('#question3').val().trim(),
+			$('#question4').val().trim(),
+			$('#question5').val().trim(),
+			$('#question6').val().trim(),
+			$('#question7').val().trim(),
+			$('#question8').val().trim(),
+			$('#question9').val().trim(),
+			$('#question10').val().trim()
+			]
+		};
 
-			var userInput = {
-				name: $("#user-name").val().trim(),
-				image: $("#user-photo").val().trim(),
-				scores: [
-				$('#question1').val().trim(),
-				$('#question2').val().trim(),
-				$('#question3').val().trim(),
-				$('#question4').val().trim(),
-				$('#question5').val().trim(),
-				$('#question6').val().trim(),
-				$('#question7').val().trim(),
-				$('#question8').val().trim(),
-				$('#question9').val().trim(),
-				$('#question10').val().trim()
-					]
-			};
+		var currentURL = window.location.origin;
 
-			$.post("/api/friends" , userInput).done(function(data){
-				console.log("response = " + JSON.stringify(data));
+		$.post(currentURL + "/api/friends" , userInput, function(data){
+			console.log("response = " + JSON.stringify(data));
 
-				$("#friendName").html(data.match);
-				$("#friendImage").attr( "src", data.img);
-
-				$("#resultModal").modal(open);
-			});
-		});
+			$("#friendName").text(data.name);
+			$("#friendImage").attr( "src", data.photo);
+			$("#resultModal").modal("toggle");
+		})
+	});
 	</script>
 </body>
 </html>
