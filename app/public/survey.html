@@ -18,7 +18,7 @@
 			<h2> Then find the friend/soulmate with the greatest compatibility!</h2>
 			<h3> 
 			Go back to our home page 
-			<a href= "home.html">
+			<a href= "/">
 				<button type="button" id="homePage" class="btn btn-default"><span class="glyphicon glyphicon-home"></span></button>
 			</a>
 			</h3>
@@ -182,7 +182,7 @@
 
 						 <hr> 
 
-						 <p id="question10">
+						 <p>
 						 	10.You feel more energetic after spending time with a group of people.
 						 	<br><br>
 						 	<select id="question10">
@@ -201,21 +201,74 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-md-12" id="answers">
+			<footer class="footer text-center">
+				<div class="container">
+					<p> <a href ="/api/friends">API Friends List </a> | <a href="https://github.com/divyaayikkara9497/friend-finder">Github Repo</a>
+					</p>
 				</div>
-			</div> 
+			</footer>
 
-		<div class="footer text-center">
-			<p> 
-				<strong>Friend-Finder</strong> by Divya Ayikkara - Copyright 2018.
-				<br>
-				<a href="app/data/friends">API Friends List</a> 
-				<a href="https://github.com/divyaayikkara9497/friend-finder">Github Repo</a>
-			</p>
+
+		<div class="modal fade" id="resultModal" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Here's your match!</h4>
+					</div>
+					<div class="modal-body">
+						<h2 id="friendName"></h2>
+						<img id="friendImage"></img>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
 		</div>
-
 	</div>
-	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// got this part from Stackoverflow
+			$('select').material_select();
+			$('.modal').modal({
+				dismissible: false, // Modal can be dismissed by clicking outside of the modal
+				opacity: .5, // Opacity of modal background
+				inDuration: 300, // Transition in duration
+				outDuration: 200, // Transition out duration
+				startingTop: '4%', // Starting top style attribute
+				endingTop: '10%' // Ending top style attribute
+			});
+		});
+		$("#submitButton").on("click" , function(event){
+			event.preventDefault();
+
+			var userInput = {
+				name: $("#user-name").val().trim(),
+				image: $("#user-photo").val().trim(),
+				scores: [
+				$('#question1').val().trim(),
+				$('#question2').val().trim(),
+				$('#question3').val().trim(),
+				$('#question4').val().trim(),
+				$('#question5').val().trim(),
+				$('#question6').val().trim(),
+				$('#question7').val().trim(),
+				$('#question8').val().trim(),
+				$('#question9').val().trim(),
+				$('#question10').val().trim()
+					]
+			};
+
+			$.post("/api/friends" , userInput).done(function(data){
+				console.log("response = " + JSON.stringify(data));
+
+				$("#friendName").html(data.match);
+				$("#friendImage").attr( "src", data.img);
+
+				$("#resultModal").modal(open);
+			});
+		});
+	</script>
 </body>
 </html>
